@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100 Razones por las que te Amo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2 id="frase">Cargando razón...</h2>
+    <button onclick="siguienteFrase()">Siguiente</button>
+  </div>
+  <audio id="bg-music" autoplay loop>
+    <source src="media/guitarra.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+  <script>
+    let frases = [];
+    let indice = 0;
+
+    fetch("frases.json")
+      .then(response => response.json())
+      .then(data => {
+        frases = data;
+        mostrarFrase();
+      });
+
+    function mostrarFrase() {
+      document.getElementById("frase").innerText = frases[indice];
+    }
+
+    function siguienteFrase() {
+      indice = (indice + 1) % frases.length;
+      mostrarFrase();
+    }
+  </script>
+</body>
+</html>

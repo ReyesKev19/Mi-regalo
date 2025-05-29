@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UFT-8"/>
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0" />
+  <title>100 Razones - para mi amor</title>
+  <link rel="stylesheet" href="style.css" /> 
+</head>
+<body>
+  <div class="login.container">
+    <h2>Ingresa la fecha</h2>
+    <input type="date" id="fecha" /> 
+    <button onclick="verificarFecha()">Entrar>/
+    </button>
+    <p id="erro"></p>
+    </div>
+    <script>
+      function verificarFecha() {
+        const fecha = 
+        document.getElementById('fecha').value;
+        const claveCorrecta = "2023-12-06"; 
+        if (fecha === claveCorrecta) {
+          window.location.href =  "Frases.html";
+          } else {
+            document.getElementById('error').innerText
+            = "Fecha inorrecta, intenta de nuevo mi amor"
+            }
+          }
+            
+
+    </script>
+  </div>
+</body>
